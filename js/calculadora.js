@@ -48,7 +48,8 @@ class Calculator {
 
 		var numerob1 = b1.toString(); //Se pasará a texto para saber cuantos caracteres tiene la cadena de binarios.
 		var numerob2 = b2.toString();
-		var principal = (numerob1.length>numerob2.length || numerob1.length==numerob2.length) ? b1 : b2; //ordenamos las cifras para evitar resultados negativos.
+		 //ordenamos las cifras para evitar resultados negativos.
+		var principal = (numerob1.length>numerob2.length || numerob1.length==numerob2.length) ? b1 : b2;
 		var secundario = (numerob1.length<numerob2.length) ? b1 : b2;
 		var minuendo = principal.toString(); //Establecemos el minuendo y el sustraendo como corresponde.
 		var sustraendo = secundario.toString();
