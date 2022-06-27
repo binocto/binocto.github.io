@@ -44,22 +44,22 @@ class Calculator {
 
 	}
 
-	sumar_binarios(b1,b2){
+	sumar_binarios(b1,b2){ //Parametros para realizar la suma, b1= primer valor, b2 = segundo valor.
 
-		var numerob1 = b1.toString();
+		var numerob1 = b1.toString(); //Se pasará a texto para saber cuantos caracteres tiene la cadena de binarios.
 		var numerob2 = b2.toString();
-		var principal = (numerob1.length>numerob2.length || numerob1.length==numerob2.length) ? b1 : b2;
+		var principal = (numerob1.length>numerob2.length || numerob1.length==numerob2.length) ? b1 : b2; //ordenamos las cifras para evitar resultados negativos.
 		var secundario = (numerob1.length<numerob2.length) ? b1 : b2;
-		var minuendo = principal.toString();
+		var minuendo = principal.toString(); //Establecemos el minuendo y el sustraendo como corresponde.
 		var sustraendo = secundario.toString();
-		var lleva = 0;
-		var resultado_arreglo = [];
+		var lleva = 0; //Asignamos 0 al valor de arrastre de la suma.
+		var resultado_arreglo = []; //creamos matrices que almacenarán cada elemento de la cadena.
 		var array_sus = [];
 		var pos;
-
-		for (var i = 0; i < minuendo.length; i++) {
-			array_sus.push(sustraendo[i]);
-			if(array_sus[i] === undefined){
+			
+		for (var i = 0; i < minuendo.length; i++) {    //Insertando valores a las matrices.
+			array_sus.push(sustraendo[i]);	       //Ejemplo: b1= "101101"		
+			if(array_sus[i] === undefined){	       //la matriz ={1,0,1,1,0,1} 		
 				array_sus.unshift('');
 				array_sus.pop();
 			}
@@ -73,7 +73,8 @@ class Calculator {
 				array[i] = 1;
 				lleva = 0;
 			}
-			if(array[i] != array_sus[i]){
+			//Aquí estableceremos las reglas de la suma de binarios.
+			if(array[i] != array_sus[i]){ 					
 				resultado_arreglo[i] = 1;
 			} else if(array[i] == array_sus[i] && array[i] != 1 && array_sus[i] != 1){
 				resultado_arreglo[i] = 0;
